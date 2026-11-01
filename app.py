@@ -1,11 +1,11 @@
 
-
+import os
 import sqlite3
 from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
-DATABASE = "jobs.db"
+DATABASE = os.environ.get("DATABASE_PATH", "jobs.db")
 
 # Connect to the SQLite database
 def get_db_connection():
